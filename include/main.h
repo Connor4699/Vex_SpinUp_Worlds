@@ -76,6 +76,9 @@ void opcontrol(void);
  * You can add C++-only headers here
  */
 #include "opcontrol.hpp"
+#include "globals.hpp"
+#include "util.hpp"
+//#include "auton.hpp"
 //#include <iostream>
 #endif
 
