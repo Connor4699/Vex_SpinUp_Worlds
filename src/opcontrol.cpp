@@ -144,19 +144,19 @@ void my_opcontrol() {
 
         //endgame
 
-        if (controller.get_digital(DIGITAL_LEFT)) {
+        if (controller.get_digital(DIGITAL_RIGHT)) {
             Right_valve.set_value(true);
             Bottom_endgame.set_value(true);
         }
 
-        if (controller.get_digital(DIGITAL_UP)) {
+        if (controller.get_digital(DIGITAL_DOWN)) {
             Left_release.set_value(true);
             Bottom_endgame.set_value(true);
         }
 
-        if (controller.get_digital(DIGITAL_DOWN)) {
-            Bottom_endgame.set_value(true);
-        }
+        // if (controller.get_digital(DIGITAL_DOWN)) {
+        //     Bottom_endgame.set_value(true);
+        // }
 
         //endgame loading
         // if (controller.get_digital_new_press(DIGITAL_B)) {

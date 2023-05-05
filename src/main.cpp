@@ -21,6 +21,51 @@ void faceTest() {
     chassis.turnTo(45, 53, 1200);
 }
 
+
+//void right_auton() {
+//    chassis.setPose(17.5, -55.75, 90);
+//    autonDesired = 590;
+//    vector(33, -55.75); //drive toward roller
+//    chassis.turnTo(33, -72, 750, true);
+//    chassis.moveTo(33, -65, 800);
+//    intake.move(127);
+//    pros::delay(300);
+//    chassis.moveTo(24, -48, 750);
+    // intake.move(127);
+    // pros::delay(1800);
+    // intake.move(0);
+ //   faceBlueNet();
+//    shootDisc(2, 400);
+//    pros::delay(100);
+
+ //   autonDesired = 550;
+//    chassis.turnTo(35, -35, 700);
+//    intake_lift.set_value(true);
+ //   setIntake(120);
+ //   chassis.turnTo(33.5, -39, 800);
+//    chassis.moveTo(33.5, -39, 1000);
+    // vector(31, -39, "", true);
+    // chassis.moveTo(34, -40, 1000);
+ //   intake_lift.set_value(false);
+//    pros::delay(900);
+    // vector(33, -37);
+    // pros::delay(500)
+//    chassis.moveTo(24, -48, 750);
+//    chassis.turnTo(62, 57, 1000);
+    // faceBlueNet();
+//    setIntake(0);
+    // faceBlueNet();
+//    shootDisc(3, 400);
+
+ //   autonDesired = 540;
+//    vector(0, -24, "", true);
+ //   setIntake(127);
+ //   pros::delay(250);
+ //   chassis.turnTo(74, 65, 1600, false, 95);
+//  setIntake(0);
+//    shootDisc(4, 300);
+
+//}
 void right_auton() {
     chassis.setPose(17.5, -55.75, 90);
     autonDesired = 590;
@@ -28,7 +73,7 @@ void right_auton() {
     chassis.turnTo(33, -72, 750, true);
     chassis.moveTo(33, -65, 800);
     intake.move(127);
-    pros::delay(200);
+    pros::delay(300);
     chassis.moveTo(24, -48, 750);
     // intake.move(127);
     // pros::delay(1800);
@@ -50,7 +95,7 @@ void right_auton() {
     // vector(33, -37);
     // pros::delay(500)
     chassis.moveTo(24, -48, 750);
-    chassis.turnTo(61, 58, 1000);
+    chassis.turnTo(62, 57, 1000);
     // faceBlueNet();
     setIntake(0);
     // faceBlueNet();
@@ -66,10 +111,64 @@ void right_auton() {
 
 }
 
-void left_auton() {
+void safe_right() {
+    chassis.setPose(17.5, -55.75, 90);
+    autonDesired = 590;
+    vector(33, -55.75); //drive toward roller
+    chassis.turnTo(33, -72, 750, true);
+    chassis.moveTo(33, -65, 800);
+    intake.move(-127);
+    pros::delay(250);
+    chassis.moveTo(24, -48, 750);
+    // intake.move(127);
+    // pros::delay(1800);
+    // intake.move(0);
+    faceBlueNet();
+    shootDisc(2, 400);
+    pros::delay(100);
+
+    autonDesired = 550;
+    chassis.turnTo(35, -35, 700);
+    intake_lift.set_value(true);
+    setIntake(120);
+    chassis.turnTo(33.5, -39, 800);
+    chassis.moveTo(33.5, -39, 1000);
+    // vector(31, -39, "", true);
+    // chassis.moveTo(34, -40, 1000);
+    intake_lift.set_value(false);
+    pros::delay(900);
+    // vector(33, -37);
+    // pros::delay(500)
+    chassis.moveTo(24, -48, 750);
+    chassis.turnTo(62, 57, 1000);
+    // faceBlueNet();
+    setIntake(0);
+    // faceBlueNet();
+    shootDisc(3, 400);
+
+    autonDesired = 540;
+    vector(0, -24, "", true);
+    setIntake(127);
+    pros::delay(250);
+    chassis.turnTo(74, 65, 1600, false, 95);
+    setIntake(0);
+    shootDisc(4, 300);
+
+}
+
+void safe_left() {
     chassis.setPose(-62.75, 37.5, 90);
-    autonDesired = 600;
-    getRoller();
+    autonDesired = 610;
+    
+    //roller safe way
+    setDrive(-50, -50);
+    setIntake(-127);
+    pros::delay(250);
+    setIntake(0);
+    setDrive(50, 50);
+    pros::delay(200);
+    setDrive(0, 0);
+
     setIntake(110);
     vector(-51, 43, "", true);
     setIntake(110);
@@ -79,7 +178,7 @@ void left_auton() {
     setIntake(0);
     shootDisc(3, 350);
     
-    autonDesired = 565;
+    autonDesired = 575;
     chassis.turnTo(-42, 32, 800);
     setIntake(127);
     intake_lift.set_value(true);
@@ -93,13 +192,60 @@ void left_auton() {
     shootDisc(3, 270);
 
 
-    autonDesired = 565;
+    autonDesired = 585;
     intake_lift.set_value(true);
     vector(-41, 17);
     intake_lift.set_value(false);
     setIntake(120);
     pros::delay(1300);
-    chassis.turnTo(40.5, 63, 1250);
+    chassis.turnTo(51, 56, 1250);
+    // faceTest();
+    setIntake(0);
+    shootDisc(5, 250);
+
+
+    // chassis.turnTo(-55, -18, 1000, true);
+    // chassis.moveTo(-55, -18, 3000);
+    // vector(-26, -18, "Intake 3 near low goal", true);
+    // chassis.moveTo(-36, -12, 2000);
+    // faceBlueNet();
+    // shootDisc(3, 200);
+}
+
+void left_auton() {
+    chassis.setPose(-62.75, 37.5, 90);
+    autonDesired = 610;
+    getRoller();
+    setIntake(110);
+    vector(-51, 43, "", true);
+    setIntake(110);
+    chassis.moveTo(-48, 24, 1200);
+    chassis.turnTo(63.5, 51, 1200);
+    // faceTest();
+    setIntake(0);
+    shootDisc(3, 350);
+    
+    autonDesired = 575;
+    chassis.turnTo(-42, 32, 800);
+    setIntake(127);
+    intake_lift.set_value(true);
+    chassis.moveTo(-42, 32, 1200);
+    intake_lift.set_value(false);
+    pros::delay(1000);
+    chassis.moveTo(-48, 24, 1200);
+    chassis.turnTo(53.5, 54, 1300);
+    // faceTest();
+    setIntake(0);
+    shootDisc(3, 270);
+
+
+    autonDesired = 585;
+    intake_lift.set_value(true);
+    vector(-41, 17);
+    intake_lift.set_value(false);
+    setIntake(120);
+    pros::delay(1300);
+    chassis.turnTo(51, 56, 1250);
     // faceTest();
     setIntake(0);
     shootDisc(5, 250);
@@ -118,7 +264,7 @@ void double_roller() {
     autonDesired = 600;
     setDrive(-50, -50);
     setIntake(-127);
-    pros::delay(200);
+    pros::delay(250);
     setIntake(0);
     setDrive(50, 50);
     pros::delay(200);
@@ -139,7 +285,7 @@ void double_roller() {
     intake_lift.set_value(false);
     chassis.moveTo(-24, 0, 1500, 75);
     pros::delay(250);
-    chassis.turnTo(52, 62, 1600);
+    chassis.turnTo(53, 61, 1600);
     // faceTest();
     setIntake(0);
     shootDisc(3, 400);
@@ -149,7 +295,7 @@ void double_roller() {
     chassis.turnTo(12, -36, 1000);
     chassis.moveTo(12, -36, 2500, 80);
     pros::delay(1000);
-    chassis.turnTo(51, 63, 1700);
+    chassis.turnTo(53, 61, 1700);
     // faceTest();
     setIntake(0);
     shootDisc(3, 350);
@@ -159,7 +305,7 @@ void double_roller() {
     chassis.turnTo(31, -72, 1000, true);
     chassis.moveTo(31, -66, 800);
     intake.move(-127);
-    pros::delay(200);
+    pros::delay(250);
     intake.move(0);
 
 
@@ -261,7 +407,7 @@ void initialize() {
     // chassis.setPose(-62.75, 37.5, 90);
     // chassis.setPose(17.5, -55.75, 90);
 
-    //selector::init();
+    selector::init();
     // pros::delay(2000);
     
 	//chassis.setPose(63, -45, -90); // X: 0, Y: 0, Heading: 0
@@ -304,27 +450,38 @@ pros::Task fwc(AutonVoltageControl);
 void autonomous() {
     
     // pros::Task fwc(AutonVoltageControl);
-    double_roller();
+   // double_roller();
     //right_auton();
     // right_auton();
-    fwc.suspend();
+   // fwc.suspend();
 
-    // if (selector::auton == 1) {
-    //     left_auton();
-    //     fwc.suspend();
-    // }
+    if (selector::auton == 1) {
+        left_auton();
+        fwc.suspend();
+    }
 
-    // if (selector::auton == 2) {
+    if (selector::auton == 2) {
         
-    //     right_auton();
-    //     fwc.suspend();
-    // }
+        right_auton();
+        fwc.suspend();
+    }
 
-    // if (selector::auton == 3) {
+    if (selector::auton == 3) {
         
-    //     double_roller();
-    //     fwc.suspend();
-    // }
+        double_roller();
+        fwc.suspend();
+    }
+
+    if (selector::auton == 4) {
+        safe_left();
+        fwc.suspend();
+    }
+
+    if (selector::auton == 5) {
+        safe_right();
+        fwc.suspend();
+    }
+
 
 
 }

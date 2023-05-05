@@ -4,8 +4,8 @@
 
 //selector configuration
 #define HUE 360
-#define DEFAULT 1
-#define AUTONS "Left", "Right", "Double Roller"
+#define DEFAULT 5
+#define AUTONS "Left", "Right", "Double Roller", "Safe Left", "Safe Right"
 
 namespace selector{
 

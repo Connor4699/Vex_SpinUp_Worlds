@@ -49,7 +49,7 @@ void setIntake(double power) {
 void getRoller() {
     setDrive(-50, -50);
     setIntake(127);
-    pros::delay(350);
+    pros::delay(500);
     setIntake(0);
     setDrive(50, 50);
     pros::delay(200);
